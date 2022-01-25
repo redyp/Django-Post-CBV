@@ -2,10 +2,11 @@
 
 {% block content %}
     <form method="post">
+        {% csrf_token %}
         {{form.as_p}}
         {% if pk == None %}
             <button type="reset">Reset</button>
-            <button type="submit">Save as Draft</button>
+            <button type="submit" formaction="{% url 'save_post_as_draft' %}">Save as Draft</button>
         {% endif %}
         <button type="submit">Submit</button>
     </form>

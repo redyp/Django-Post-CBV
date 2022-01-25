@@ -9,5 +9,18 @@
 <body>
     <h1>Blog Post</h1>
     <h3><a href="{% url 'new_post' %}">Create Post</a></h3>
+    <h3><a href="{% url 'draft_post' %}">Draft Post</a></h3>
+    {% if posts %}
+        {% for post in posts %}
+            <h2>{{post.title}}</h2>
+            <p>Author: {{post.author|title}}</p>
+            <p>Published date: {{post.published_date}}</p>
+            {% for parag in post.text_as_list %}
+                <p>{{parag}}</p>
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+        <h2>Post Kosong</h2>
+    {% endif %}
 </body>
 </html>
