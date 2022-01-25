@@ -7,7 +7,9 @@
     <title>{{title}}</title>
 </head>
 <body>
-    <h1>Blog Post</h1>
-    <h3><a href="{% url 'new_post' %}">Create Post</a></h3>
+    {% block content %}{% endblock content %}
+    <footer>
+        <h3><a href="{% url 'home' %}">Back to home</a></h3>
+    </footer>
 </body>
 </html>

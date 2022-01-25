@@ -11,5 +11,13 @@ urlpatterns = [
             title='Blog Post - Homepage'
         ),
         name='home'
-    )
+    ),
+    path(
+        'blog/new/',
+        BlogViews.as_view(
+            template_name = 'blog/form.html',
+            title='New Post'
+        ),
+        name='new_post'
+    ),
 ]
