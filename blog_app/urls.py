@@ -50,5 +50,12 @@ urlpatterns = [
             edit_post=True
         ),
         name='edit_post'
+    ),
+    path(
+        'blog/delete/<int:pk>',
+        BlogViews.as_view(
+            delete_post=True
+        ),
+        name='delete_post'
     )
 ]

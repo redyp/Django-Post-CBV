@@ -13,7 +13,7 @@
     {% if posts %}
         {% for post in posts %}
             <h2>{{post.title}}</h2>
-            <h4><a href="{% url 'edit_post' pk=post.pk %}">Edit</a></h4>
+            <h4><a href="{% url 'edit_post' pk=post.pk %}">Edit</a><span>||</span><a href="{% url 'delete_post' pk=post.pk %}">Delete</a></h4>
             <p>Author: {{post.author|title}}</p>
             <p>Published date: {{post.published_date}}</p>
             {% for parag in post.text_as_list %}

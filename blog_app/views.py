@@ -16,6 +16,7 @@ class BlogViews(View):
     title = ''
     save_as_draft = False
     edit_post = False
+    delete_post = False
 
     def get(self, request, pk=None, *args, **kwargs):
         posts = Post.objects.filter(published_date__isnull=False).all()
@@ -30,6 +31,10 @@ class BlogViews(View):
                     'form': form,
                     'pk': pk,
                 })
+            if self.delete_post:
+                post = get_object_or_404(Post, pk=pk)
+                post.delete()
+                return redirect('home')
             draft = get_object_or_404(Post, pk=pk)
             draft.publish_post()
             return redirect('home')
