@@ -41,5 +41,14 @@ urlpatterns = [
             save_as_draft=True
         ),
         name='save_post_as_draft'
+    ),
+    path(
+        'blog/edit/<int:pk>',
+        BlogViews.as_view(
+            template_name='blog/form.html',
+            title='Edit Post',
+            edit_post=True
+        ),
+        name='edit_post'
     )
 ]

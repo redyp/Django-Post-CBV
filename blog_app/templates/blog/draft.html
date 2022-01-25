@@ -6,6 +6,7 @@
         {% for draft in drafts %}
             <article>
                 <h2>{{draft.title}}</h2>
+                <h4><a href="{% url 'edit_post' pk=draft.pk %}">Edit</a></h4>
                 <h4><a href="{% url 'publish_draft_post' pk=draft.pk %}">Publish</a></h4>
                 <p>Author : {{draft.author}}</p>
                 <p>Created Date: {{draft.created_date}}</p>
